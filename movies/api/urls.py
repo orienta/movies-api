@@ -1,8 +1,10 @@
-#!/usr/bin/env python3
-# -*- coding: utf-8 -*-
-"""
-Created on Tue Aug  1 12:47:40 2017
+# movies-api/movies/api/urls.py
 
-@author: usuario
-"""
+from django.conf.urls import url
 
+from api.views import MovieCreateView, MovieDetailView
+
+urlpatterns = [
+    url(r'^movies/$', MovieCreateView.as_view(), name='movies'),
+    url(r'^movies/(?P<id>[0-9]+)$', MovieDetailView.as_view(), name='detail'),
+]
