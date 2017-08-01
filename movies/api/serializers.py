@@ -1,8 +1,13 @@
-#!/usr/bin/env python3
-# -*- coding: utf-8 -*-
-"""
-Created on Tue Aug  1 12:48:07 2017
+# movies-api/movies/api/serializers.py
 
-@author: usuario
-"""
+from rest_framework.serializers import ModelSerializer
 
+from api.models import Movie
+
+class MovieSerializer(ModelSerializer):
+    class Meta:
+        model = Movie
+        fields = ('id', 'name', 'year_of_release')
+        extra_kwargs = {
+            'id': {'read_only': True}
+        }
